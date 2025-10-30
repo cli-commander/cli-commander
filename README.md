@@ -22,11 +22,17 @@ pip install -e .
 
 ### Configuration
 
-Create a configuration file named `cli-commander.yml` in either:
+cli-command looks for a configuration file named `cli-commander.yml` in either:
 - Your current directory (`.`), or
 - Your home directory (`~/.cli-commander/`)
 
 The tool will check the local directory first, then fall back to the home directory.
+
+You can autocreate this with a template by running:
+
+```
+cmdr init
+```
 
 ### Configuration Format
 
