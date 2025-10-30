@@ -1,0 +1,12 @@
+selectors:
+  hello:
+    description: "Say hello"
+    command: "echo 'Hello from cli-commander!'"
+  
+  date:
+    description: "Show current date"
+    command: "date"
+  
+  list-files:
+    description: "List files in current directory"
+    command: "ls -la"
