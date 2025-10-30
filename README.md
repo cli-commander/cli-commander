@@ -75,7 +75,7 @@ cmdr lint
 To see all available selectors from your configuration:
 
 ```bash
-cmdr --list <any-selector-name>
+cmdr --list
 ```
 
 ## License

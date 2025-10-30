@@ -15,6 +15,7 @@ def main():
     
     parser.add_argument(
         "selector",
+        nargs="?",
         help="Name of the selector to execute from the configuration file"
     )
     
@@ -53,6 +54,12 @@ def main():
             else:
                 print(f"  {name}")
         sys.exit(0)
+    
+    # Check if selector argument is provided
+    if not args.selector:
+        print("Error: Selector name is required", file=sys.stderr)
+        print("\nUse 'cmdr --list' to see available selectors", file=sys.stderr)
+        sys.exit(1)
     
     # Get the selector
     selector_config = config_parser.get_selector(args.selector)
