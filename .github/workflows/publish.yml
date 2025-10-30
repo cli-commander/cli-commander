@@ -4,14 +4,12 @@ on:
   release:
     types: [published]    # fires when Release Please publishes the release
 
-permissions:
-  id-token: write         # required for PyPI Trusted Publishing
-  contents: read
-
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
-
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Check out
         uses: actions/checkout@v4
