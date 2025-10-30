@@ -1,0 +1,34 @@
+# Example cli-commander configuration file
+# Place this file in your project root as cli-commander.yml
+# or in your home directory as ~/.cli-commander/cli-commander.yml
+
+selectors:
+  # Example: Run tests
+  test:
+    description: "Run all tests"
+    command: "pytest"
+  
+  # Example: Build the project
+  build:
+    description: "Build the project"
+    command: "python setup.py build"
+  
+  # Example: Format code
+  format:
+    description: "Format code with black"
+    command: "black ."
+  
+  # Example: Lint code
+  lint:
+    description: "Lint code with flake8"
+    command: "flake8 ."
+  
+  # Example: Run development server
+  dev:
+    description: "Start development server"
+    command: "python -m http.server 8000"
+  
+  # Example: Chain multiple commands
+  check:
+    description: "Run linting and tests"
+    command: "flake8 . && pytest"
