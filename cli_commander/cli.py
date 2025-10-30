@@ -4,6 +4,7 @@ import sys
 import argparse
 from cli_commander.config import ConfigParser
 from cli_commander.executor import CommandExecutor
+from cli_commander.generate_configs import main as generate_configs
 
 
 def main():
@@ -25,7 +26,23 @@ def main():
         help="List all available selectors"
     )
     
+    # Add init subcommand support
+    parser.add_argument(
+        "--init",
+        action="store_true",
+        help="Initialize cli-commander by creating boilerplate config files"
+    )
+    
     args = parser.parse_args()
+    
+    # Handle --init flag (or 'init' as selector)
+    if args.init or (args.selector and args.selector.lower() == "init"):
+        try:
+            generate_configs()
+            sys.exit(0)
+        except Exception as e:
+            print(f"Error initializing configuration: {e}", file=sys.stderr)
+            sys.exit(1)
     
     # Initialize config parser
     config_parser = ConfigParser()

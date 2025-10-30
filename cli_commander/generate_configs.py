@@ -12,6 +12,8 @@ CONFIG_CONTENT = """# Example cli-commander configuration file
 #       command:
 #   name:
 # etc.
+
+selectors:
 """
 
 def create_config_file(target: Path):
@@ -24,9 +26,9 @@ def create_config_file(target: Path):
         print(f"Configuration file already exists at {target}")
 
 def main():
-    # 1. Install directory path (where the package itself lives)
-    install_dir = Path(__file__).resolve().parent
-    project_config = install_dir / "cli-commander.yml"
+    # 1. Current working directory (where pip install was run)
+    cwd = Path.cwd()
+    project_config = cwd / "cli-commander.yml"
     create_config_file(project_config)
 
     # 2. User home directory config (~/.cli-commander/cli-commander.yml)
